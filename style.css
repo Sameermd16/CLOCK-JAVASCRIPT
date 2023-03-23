@@ -28,7 +28,7 @@ body{
     /* background-color: red; */
     text-align: center;
     transform: rotate(var(--rotation));
-    font-size: 20px;
+    font-size: 25px;
 }
 .clock > .number1 {--rotation: 30deg}
 .clock > .number2 {--rotation: 60deg}
@@ -44,15 +44,41 @@ body{
 .clock > .number12 {--rotation: 360deg}
 
 .clock > .hand {
-    --rotation: 30;
+    --rotation: 0;
     position: absolute;
     bottom: 50%;
     left: 50%;
     width: 10px;
     height: 45%;
     background-color: black;
+    border: 1px solid white;
     transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
     transform-origin: bottom;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
+    z-index: 10;
+}
+.clock > .second {
+    width: 3px;
+    background-color: red;
+}
+.clock > .hour {
+    height: 30%;
+    width: 10px;
+}
+.clock > .minute {
+    height: 40%;
+    width: 7px;
+}
+.clock::after{
+    content: "";
+    position: absolute;
+    background-color: black;
+    z-index: 11;
+    width: 25px;
+    height: 25px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
 }
